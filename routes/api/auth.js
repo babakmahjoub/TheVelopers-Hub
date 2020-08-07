@@ -11,7 +11,10 @@ const User = require('../../models/User');
 //Login user
 router.post(
   '/',
-  [check('email', 'Must be a valid Email').isEmail(), check('password', 'Password is required').exists()],
+  [
+    check('email', 'Please enter a valid Email').isEmail(),
+    check('password', 'Password is required').exists(),
+  ],
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
