@@ -1,0 +1,113 @@
+[33mcommit 2dc3cbdab582a2c68e752ba7fc17ce1785a934d9[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: babak mahjoub <62224494+babakmahjoub@users.noreply.github.com>
+Date:   Mon Aug 10 11:37:53 2020 +1000
+
+    Setup Protected Route
+
+[33mcommit 1277326f7d63bac0d4658c4682394326443035ac[m
+Author: babak mahjoub <62224494+babakmahjoub@users.noreply.github.com>
+Date:   Sun Aug 9 14:31:39 2020 +1000
+
+    Add logout and active Navbar
+
+[33mcommit 85eff43a22960fb5108488b66cd39856469736fe[m
+Author: babak mahjoub <62224494+babakmahjoub@users.noreply.github.com>
+Date:   Sat Aug 8 23:34:47 2020 +1000
+
+    Add Login
+
+[33mcommit a2f06b3f95f7f9482add2a15f70e5ab75dd329d6[m
+Author: babak mahjoub <62224494+babakmahjoub@users.noreply.github.com>
+Date:   Sat Aug 8 15:27:07 2020 +1000
+
+    Add Load User with localStorage Token
+
+[33mcommit b1439ded416a342e7b941dad18c3bc03ec46463a[m
+Author: babak mahjoub <62224494+babakmahjoub@users.noreply.github.com>
+Date:   Sat Aug 8 00:31:27 2020 +1000
+
+    Add Load User route in back-end
+
+[33mcommit 1630dc053ebb0cfe562ef5e83b7281c145ea28f9[m
+Author: babak mahjoub <62224494+babakmahjoub@users.noreply.github.com>
+Date:   Sat Aug 8 00:19:59 2020 +1000
+
+    Implement Redux, setup Alerts, setup Register
+
+[33mcommit 33c84996345ebcb7bf4df7421d340492a0217543[m
+Author: babak mahjoub <62224494+babakmahjoub@users.noreply.github.com>
+Date:   Wed Aug 5 23:11:39 2020 +1000
+
+    Add React, Create Navbar and Landing Component, Add App.css,
+
+[33mcommit 16e247f346a12992a44b341dd80bc89f2db63802[m
+Author: babak mahjoub <62224494+babakmahjoub@users.noreply.github.com>
+Date:   Wed Aug 5 15:08:11 2020 +1000
+
+    Add Add Comment and Delete Comment routes
+
+[33mcommit 7a7c8b6a02d8229f7c0969264fe37b322db40008[m
+Author: babak mahjoub <62224494+babakmahjoub@users.noreply.github.com>
+Date:   Wed Aug 5 12:14:33 2020 +1000
+
+    Add Like and Unlike routes
+
+[33mcommit 80235bd23cfd37cb3b8f74eb22f3d6c93326021e[m
+Author: babak mahjoub <62224494+babakmahjoub@users.noreply.github.com>
+Date:   Tue Aug 4 16:26:25 2020 +1000
+
+    Add Add Post - Get All Posts - Get One Post - Delete a Post routes
+
+[33mcommit c129adc28236d607d18edf410a6bd6efd571fba4[m
+Author: babak mahjoub <62224494+babakmahjoub@users.noreply.github.com>
+Date:   Mon Aug 3 18:33:32 2020 +1000
+
+    Add Post Schema in models
+
+[33mcommit e1b8af955ef597ffe744dd5728310833dfbb72d3[m
+Author: babak mahjoub <62224494+babakmahjoub@users.noreply.github.com>
+Date:   Mon Aug 3 18:05:37 2020 +1000
+
+    Add User Github Repo
+
+[33mcommit 879eb0fcd0c53d8f9bfa356d2765078dfbf5c2e8[m
+Author: babak mahjoub <62224494+babakmahjoub@users.noreply.github.com>
+Date:   Mon Aug 3 14:28:29 2020 +1000
+
+    Add Add & Delete Education
+
+[33mcommit e08b31fdf550f2466a7e37e3ef275a887615f040[m
+Author: babak mahjoub <62224494+babakmahjoub@users.noreply.github.com>
+Date:   Mon Aug 3 14:13:44 2020 +1000
+
+    Add Add and Delete Experience
+
+[33mcommit 916a8b02a9cd1efadec4b3a9553837ba9947dd72[m
+Author: babak mahjoub <62224494+babakmahjoub@users.noreply.github.com>
+Date:   Mon Aug 3 13:08:55 2020 +1000
+
+    Add Delete User & Profile route
+
+[33mcommit 5b88c1d93025474f8ee6864c23798f1b4a17c5ff[m
+Author: babak mahjoub <62224494+babakmahjoub@users.noreply.github.com>
+Date:   Mon Aug 3 12:36:28 2020 +1000
+
+    Add Create/Edit route - Add View Profile route
+
+[33mcommit 17b8f8b74c7dcfad195ec9f645fb837ea87f7312[m
+Author: babak mahjoub <62224494+babakmahjoub@users.noreply.github.com>
+Date:   Sat Aug 1 23:01:48 2020 +1000
+
+    Add a route to get authenticated profile
+
+[33mcommit 83e5e58653dd1d36831cd753db35984d1a014d15[m
+Author: babak mahjoub <62224494+babakmahjoub@users.noreply.github.com>
+Date:   Sat Aug 1 21:07:47 2020 +1000
+
+    Add Register and Add auth middleware
+
+[33mcommit c4d2154f68581523c00674794dc41fd0fd4f93b0[m
+Author: babak mahjoub <62224494+babakmahjoub@users.noreply.github.com>
+Date:   Sat Aug 1 11:05:38 2020 +1000
+
+    Initial Commit
