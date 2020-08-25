@@ -270,7 +270,7 @@ router.get('/github/:username', (req, res) => {
         req.params.username
       }/repos?per_page=5&sort=created:asc&client_id=${config.get(
         'githubClientId'
-      )}&client_secret=${config.get('githubSecret')}`,
+      )}&client_secret=${config.get('githubToken')}`,
       method: 'GET',
       headers: { 'user-agent': 'node.js' },
     };

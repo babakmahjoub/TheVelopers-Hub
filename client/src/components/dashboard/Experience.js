@@ -11,8 +11,8 @@ function Experience({ experience, deleteExperience }) {
       <td>{exp.company}</td>
       <td className='hide-sm'>{exp.title}</td>
       <td>
-        <Moment format='YYYY/MM/DD'>{moment.utc(exp.from)} </Moment> -{' '}
-        {exp.to === null ? 'Now' : <Moment format='YYYY/MM/DD'>{moment.utc(exp.to)} </Moment>}
+        <Moment format='YYYY/MM/DD'>{moment.utc(exp.from)}</Moment> -{' '}
+        {exp.to === null ? 'Now' : <Moment format='YYYY/MM/DD'>{moment.utc(exp.to)}</Moment>}
       </td>
       <td>
         <button onClick={() => deleteExperience(exp._id)} className='btn btn-danger'>

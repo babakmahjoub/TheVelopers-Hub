@@ -11,8 +11,8 @@ function Education({ education, deleteEducation }) {
       <td>{edu.school}</td>
       <td className='hide-sm'>{edu.degree}</td>
       <td>
-        <Moment format='YYYY/MM/DD'>{moment.utc(edu.from)} </Moment> -{' '}
-        {edu.to === null ? 'Now' : <Moment format='YYYY/MM/DD'>{moment.utc(edu.to)} </Moment>}
+        <Moment format='YYYY/MM/DD'>{moment.utc(edu.from)}</Moment> -{' '}
+        {!edu.to ? 'Now' : <Moment format='YYYY/MM/DD'>{moment.utc(edu.to)}</Moment>}
       </td>
       <td>
         <button onClick={() => deleteEducation(edu._id)} className='btn btn-danger'>

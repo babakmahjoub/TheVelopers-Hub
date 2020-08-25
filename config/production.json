@@ -1,0 +1,6 @@
+{
+  "mongoURI": "mongodb+srv://babak:academiahub@cluster0.bd1zh.mongodb.net/<dbname>?retryWrites=true&w=majority",
+  "jwtSecret": "mysecrettoken",
+  "githubClientId": "a6d422d8a6635427a64a",
+  "githubToken": "d31eadc8e5853b72f42416c21c42acc9358c550b"
+}

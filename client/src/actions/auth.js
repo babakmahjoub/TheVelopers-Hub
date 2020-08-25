@@ -12,6 +12,8 @@ import {
   CLEAR_PROFILE,
 } from '../actions/types';
 
+import { getCurrentProfile } from './profile';
+
 // Load User
 export const loadUser = () => async dispatch => {
   if (localStorage.token) {
@@ -80,6 +82,7 @@ export const login = (email, password) => async dispatch => {
     });
 
     dispatch(loadUser());
+    dispatch(getCurrentProfile());
   } catch (err) {
     const errors = err.response.data.errors;
 
