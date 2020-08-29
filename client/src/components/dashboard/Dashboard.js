@@ -7,6 +7,7 @@ import { Spinner } from '../layout/Spinner';
 import DashboardActions from './DashboardActions';
 import Experience from './Experience';
 import Education from './Education';
+import Project from './Project';
 
 const Dashboard = ({ getCurrentProfile, deleteAccount, auth: { user }, profile: { profile, loading } }) => {
   useEffect(() => {
@@ -26,10 +27,11 @@ const Dashboard = ({ getCurrentProfile, deleteAccount, auth: { user }, profile: 
           <DashboardActions />
           <Experience experience={profile.experience} />
           <Education education={profile.education} />
+          <Project project={profile.project} />
 
           <div className='my-2'>
             <button className='btn btn-danger' onClick={() => deleteAccount()}>
-              <i className='fas fa-user-minus'> Delete My Account</i>
+              <i className='fas fa-user-slash'> Delete My Account</i>
             </button>
           </div>
         </Fragment>

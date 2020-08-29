@@ -104,6 +104,26 @@ const ProfileSchema = new mongoose.Schema({
       type: String,
     },
   },
+  project: [
+    {
+      projectName: {
+        type: String,
+        required: true,
+      },
+      image: {
+        type: String,
+      },
+      linkTo: {
+        type: String,
+      },
+      desc: {
+        type: String,
+      },
+      technologies: {
+        type: [String],
+      },
+    },
+  ],
   date: {
     type: Date,
     default: Date.now,

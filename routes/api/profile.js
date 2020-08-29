@@ -262,6 +262,68 @@ router.delete('/education/:edu_id', auth, async (req, res) => {
   }
 });
 
+//Add Profile Projects
+router.put(
+  '/project',
+  [
+    auth,
+    [
+      check('projectName', 'Project Name is required').not().isEmpty(),
+      check('linkTo', 'A link to project website is required').not().isEmpty(),
+    ],
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const { projectName, image, linkTo, technologies, desc } = req.body;
+
+    const newProj = { projectName, image, linkTo, desc };
+
+    if (newProj.image === '') {
+      newProj.image = 'https://marketingbitz.com/wp-content/uploads/2018/10/webdesign-3411373_1280.jpg';
+    }
+
+    if (technologies) {
+      newProj.technologies = technologies.split(',').map(skill => skill.trim());
+    }
+
+    try {
+      const profile = await Profile.findOne({ user: req.user.id });
+
+      profile.project.unshift(newProj);
+
+      await profile.save();
+
+      res.json(profile);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
+    }
+  }
+);
+
+//Delete Profile Project
+router.delete('/project/:proj_id', auth, async (req, res) => {
+  try {
+    const profile = await Profile.findOne({ user: req.user.id });
+
+    // Get remove index
+    const removeIndex = profile.project.map(item => item._id).indexOf(req.params.proj_id);
+
+    profile.project.splice(removeIndex, 1);
+
+    await profile.save();
+
+    res.json(profile);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
 //Get user repos from Github
 router.get('/github/:username', (req, res) => {
   try {

@@ -180,6 +180,39 @@ export const addEducation = (formData, history) => async dispatch => {
   }
 };
 
+//Add Project
+export const addProject = (formData, history) => async dispatch => {
+  try {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+
+    const res = await axios.put('/api/profile/project', formData, config);
+
+    dispatch({
+      type: UPDATE_PROFILES,
+      payload: res.data,
+    });
+
+    dispatch(setAlert('Project Added', 'success'));
+
+    history.push('/dashboard');
+  } catch (err) {
+    const errors = err.response.data.errors;
+
+    if (errors) {
+      errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+    }
+
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
 //Delete Experience
 export const deleteExperience = id => async dispatch => {
   try {
@@ -208,6 +241,24 @@ export const deleteEducation = id => async dispatch => {
       payload: res.data,
     });
     dispatch(setAlert('Education Removed'));
+  } catch (err) {
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+//Delete Project
+export const deleteProject = id => async dispatch => {
+  try {
+    const res = await axios.delete(`/api/profile/project/${id}`);
+
+    dispatch({
+      type: UPDATE_PROFILES,
+      payload: res.data,
+    });
+    dispatch(setAlert('Project Removed'));
   } catch (err) {
     dispatch({
       type: PROFILE_ERROR,

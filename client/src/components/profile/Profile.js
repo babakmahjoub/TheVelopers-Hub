@@ -7,6 +7,7 @@ import ProfileTop from './ProfileTop';
 import ProfileAbout from './ProfileAbout';
 import ProfileExperience from './ProfileExperience';
 import ProfileEducation from './ProfileEducation';
+import ProfileProject from './ProfileProject';
 import ProfileGithub from './ProfileGithub';
 import { Link } from 'react-router-dom';
 
@@ -56,7 +57,23 @@ const Profile = ({ getProfileById, profile: { profile, loading }, auth, match })
                 <h4>No education credentials</h4>
               )}
             </div>
-            {profile.githubusername && <ProfileGithub username={profile.githubusername} />}
+
+            <div className='profile-proj bg-white p-2'>
+              <h2 className='text-primary'>Projects</h2>
+              {profile.project.length > 0 ? (
+                <Fragment>
+                  {profile.project.map(project => (
+                    <ProfileProject key={project._id} project={project} userId={profile.user._id} />
+                  ))}
+                </Fragment>
+              ) : (
+                <h4>No Projects found</h4>
+              )}
+            </div>
+
+            <div className='bg-white p-2'>
+              {profile.githubusername && <ProfileGithub username={profile.githubusername} />}
+            </div>
           </div>
         </Fragment>
       )}

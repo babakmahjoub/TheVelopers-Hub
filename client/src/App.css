@@ -70,6 +70,10 @@ img {
   color: var(--primary-color);
 }
 
+.text-danger {
+  color: var(--danger-color);
+}
+
 .text-dark {
   color: var(--dark-color);
 }
@@ -367,7 +371,7 @@ button {
     'top top'
     'about about'
     'exp edu'
-    'github github';
+    'proj github';
   grid-gap: 1rem;
 }
 
@@ -386,23 +390,32 @@ button {
 
 .profile-top .icons a {
   color: #fff;
-  margin: 0 0.3rem;
+  margin: 0 0.5rem;
 }
 
 .profile-top .icons a:hover {
   color: var(--dark-color);
 }
 
-.profile-about {
+.profile-about,
+.project-about {
   grid-area: about;
   text-align: center;
+  display: flex;
+  flex-flow: column;
 }
 
-.profile-about .skills {
+.profile-about .skills,
+.project-about .skills {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+
+.project-image {
+  max-width: 600px;
+  align-self: center;
 }
 
 .profile-exp {
@@ -413,26 +426,38 @@ button {
   grid-area: edu;
 }
 
+/* .profile-proj {
+  grid-area: proj;
+} */
+
 .profile-exp h2,
-.profile-edu h2 {
+.profile-edu h2,
+.profile-proj h2 {
   margin-bottom: 1rem;
 }
 
 .profile-exp > div,
-.profile-edu > div {
+.profile-edu > div,
+.profile-proj > div {
   margin-bottom: 1rem;
   padding-bottom: 1rem;
   border-bottom: #ccc 1px dotted;
 }
 
 .profile-exp > div:last-child,
-.profile-edu > div:last-child {
+.profile-edu > div:last-child,
+.profile-proj > div:last-child {
   border: 0;
 }
 
 .profile-exp p,
-.profile-edu p {
+.profile-edu p,
+.profile-proj p {
   margin: 0.5rem 0;
+}
+
+.profile-proj img {
+  margin-top: 1rem;
 }
 
 .profile-github {
@@ -574,4 +599,8 @@ button {
   .post button {
     padding: 0.3rem 0.4rem;
   }
+}
+
+.logo {
+  width: 120px;
 }
