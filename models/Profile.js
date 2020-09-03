@@ -122,6 +122,9 @@ const ProfileSchema = new mongoose.Schema({
       technologies: {
         type: [String],
       },
+      features: {
+        type: [String],
+      },
     },
   ],
   date: {

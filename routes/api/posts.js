@@ -34,7 +34,7 @@ router.post('/', [auth, [check('text', 'Text is required').not().isEmpty()]], as
 });
 
 //GET all post
-router.get('/', auth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const posts = await Post.find().sort({ date: -1 });
     res.json(posts);
@@ -45,7 +45,7 @@ router.get('/', auth, async (req, res) => {
 });
 
 //GET One  post
-router.get('/:id', auth, async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
     if (!post) {

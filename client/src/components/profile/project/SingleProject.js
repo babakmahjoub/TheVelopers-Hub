@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getProfileById } from '../../../actions/profile';
 import { Spinner } from '../../layout/Spinner';
+import { Link } from 'react-router-dom';
 
 const SingleProject = ({ getProfileById, profile: { profile, loading }, match }) => {
   useEffect(() => {
@@ -21,7 +22,10 @@ const SingleProject = ({ getProfileById, profile: { profile, loading }, match })
           <Spinner />
         ) : (
           <Fragment>
-            <div className='project-about bg-white p-2'>
+            <Link to={`/profile/${profile.user._id}`} className='btn btn-light'>
+              Back to Profile
+            </Link>
+            <div className='project-about bg-white p-2 my-1'>
               <h2 className='text-dark'>{projectName}</h2>
 
               <div className='p-1 project-image'>

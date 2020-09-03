@@ -7,6 +7,7 @@ const Post = require('../../models/Post');
 const config = require('config');
 const request = require('request');
 const { check, validationResult } = require('express-validator');
+const fileUpload = require('express-fileupload');
 
 //Create or Update user profile
 router.post(
@@ -350,6 +351,28 @@ router.get('/github/:username', (req, res) => {
     console.error(err.message);
     res.status(500).send('Server Error');
   }
+});
+
+router.use(fileUpload({ uriDecodeFileNames: true }));
+
+//Upload Project Image
+router.post('/upload', (req, res) => {
+  if (req.files === null) {
+    return res.status(400).json({ msg: 'No file uploaded' });
+  }
+  const file = req.files.file;
+
+  const imageExtension = file.name.split('.')[file.name.split('.').length - 1];
+  const imageFileName = `${Math.round(Math.random() * 10000000000)}.${imageExtension}`;
+
+  file.mv(`${__dirname}../../../client/public/uploads/${imageFileName}`, err => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send(err);
+    }
+    res.json({ fileName: imageFileName, filePath: `/uploads/${imageFileName}` });
+    console.log('added');
+  });
 });
 
 module.exports = router;
