@@ -12,12 +12,13 @@ const AddProject = ({ addProject, history }) => {
     desc: '',
     image: '',
     technologies: '',
+    features: '',
   });
 
   const [file, setFile] = useState('');
   const [uploadedFile, setUploadedFile] = useState({});
 
-  const { projectName, linkTo, desc, technologies } = formData;
+  const { projectName, linkTo, desc, technologies, features } = formData;
 
   const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -90,6 +91,15 @@ const AddProject = ({ addProject, history }) => {
             placeholder='Technologies Used'
             name='technologies'
             value={technologies}
+            onChange={e => onChange(e)}
+          />
+        </div>
+        <div className='form-group'>
+          <input
+            type='text'
+            placeholder='Features'
+            name='features'
+            value={features}
             onChange={e => onChange(e)}
           />
         </div>

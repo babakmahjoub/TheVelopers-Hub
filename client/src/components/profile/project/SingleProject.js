@@ -12,7 +12,7 @@ const SingleProject = ({ getProfileById, profile: { profile, loading }, match })
 
   if (profile !== null && !loading) {
     var project = profile.project[profile.project.findIndex(proj => proj._id === match.params.proj_id)];
-    var { projectName, linkTo, image, technologies, desc } = project;
+    var { projectName, linkTo, image, technologies, features, desc } = project;
   }
 
   return (
@@ -44,6 +44,15 @@ const SingleProject = ({ getProfileById, profile: { profile, loading }, match })
                 {technologies.map((technology, index) => (
                   <div key={index} className='p-1'>
                     <i className='fas fa-check'></i> {technology}
+                  </div>
+                ))}
+              </div>
+              <h2>Website Features</h2>
+
+              <div className='skills'>
+                {features.map((feature, index) => (
+                  <div key={index} className='p-1'>
+                    <i className='fas fa-check'></i> {feature}
                   </div>
                 ))}
               </div>

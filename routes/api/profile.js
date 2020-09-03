@@ -279,9 +279,9 @@ router.put(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { projectName, image, linkTo, technologies, desc } = req.body;
+    const { projectName, image, linkTo, technologies, features, desc } = req.body;
 
-    const newProj = { projectName, image, linkTo, desc };
+    const newProj = { projectName, image, linkTo, desc, features };
 
     if (newProj.image === '') {
       newProj.image = 'https://marketingbitz.com/wp-content/uploads/2018/10/webdesign-3411373_1280.jpg';
@@ -289,6 +289,10 @@ router.put(
 
     if (technologies) {
       newProj.technologies = technologies.split(',').map(skill => skill.trim());
+    }
+
+    if (features) {
+      newProj.features = features.split(',').map(skill => skill.trim());
     }
 
     try {
