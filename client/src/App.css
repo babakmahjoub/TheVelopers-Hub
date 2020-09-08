@@ -103,6 +103,9 @@ img {
 .py-3 {
   padding: 3rem 0;
 }
+.p-tag {
+  padding: 0.5rem 0.5rem 0 0.5rem;
+}
 
 /* Margin */
 .m {
@@ -141,6 +144,7 @@ img {
   margin-right: 0.5rem;
   transition: opacity 0.2s ease-in;
   outline: none;
+  border-radius: 2em;
 }
 
 .badge {
@@ -207,10 +211,21 @@ img {
   background: #fff;
   color: #333;
   border: #ccc solid 1px;
+  overflow: hidden;
 }
 
 .btn:hover {
   opacity: 0.8;
+}
+
+.btn-delete {
+  background: none;
+  color: var(--danger-color);
+}
+
+.inline {
+  display: flex;
+  justify-content: space-between;
 }
 
 .bg-light,
@@ -499,13 +514,13 @@ button {
   width: 100px;
 }
 
-.post .comment-count {
-  background: var(--light-color);
-  color: var(--primary-color);
+/* .post .comment-count {
+  background: var(--primary-color);
+  color: var(--light-color);
   padding: 0.1rem 0.2rem;
   border-radius: 5px;
   font-size: 0.8rem;
-}
+} */
 
 .post .post-date {
   color: #aaa;
@@ -602,5 +617,66 @@ button {
 }
 
 .logo {
-  width: 120px;
+  width: 140px;
 }
+
+/* tags */
+
+/* .wrapper {
+  margin: 2em 6em;
+  padding: 1em;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  align-self: center;
+  font-size: 1rem;
+  border: 1px solid #28242f;
+  border-radius: 0.35em;
+  background-color: var(--light-color);
+  box-shadow: 0 1px 6px var(--primary-color);
+} */
+
+a {
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: 1rem;
+  color: var(--dark-color);
+}
+a.tag {
+  display: block;
+  padding: 0.3em 0.85em;
+  margin: 0.5em;
+  border: 2px solid var(--primary-color);
+  border-radius: 2em;
+  transition: transform 0.2s;
+  transition-timing-function: cubic-bezier(0.45, -0.85, 0.55, -0.45);
+}
+a.tag:hover {
+  transform: scale(1.2);
+}
+
+.tags {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+/* .tags span {
+  margin-right: 1em;
+  padding: 1em;
+  text-transform: uppercase;
+  transform: rotate(180deg);
+  writing-mode: vertical-rl;
+  border-left: 3px solid #28242f;
+  background: linear-gradient(to right, #ff8a00, #da1b60);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.tags a:last-child {
+  margin-left: 0.5em;
+}
+.tags a:last-child:hover {
+  color: white;
+} */

@@ -15,15 +15,18 @@ function CommentItem({ postId, deleteComment, comment: { _id, text, name, avatar
         </Link>
       </div>
       <div>
-        <p className='my-1'>{text}</p>
+        <div className='inline'>
+          <p className='my-1'>{text}</p>
+          {auth.isAuthenticated && !auth.loading && user === auth.user._id && (
+            <button onClick={e => deleteComment(postId, _id)} type='button' className='btn btn-delete'>
+              <i className='fas fa-times'></i>
+            </button>
+          )}
+        </div>
+
         <p className='post-date'>
           <Moment fromNow>{date}</Moment>
         </p>
-        {auth.isAuthenticated && !auth.loading && user === auth.user._id && (
-          <button onClick={e => deleteComment(postId, _id)} type='button' className='btn btn-danger'>
-            <i className='fas fa-times'></i>
-          </button>
-        )}
       </div>
     </div>
   );

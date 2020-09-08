@@ -215,55 +215,61 @@ export const addProject = (formData, history) => async dispatch => {
 
 //Delete Experience
 export const deleteExperience = id => async dispatch => {
-  try {
-    const res = await axios.delete(`/api/profile/experience/${id}`);
+  if (window.confirm('Delete Experience?')) {
+    try {
+      const res = await axios.delete(`/api/profile/experience/${id}`);
 
-    dispatch({
-      type: UPDATE_PROFILES,
-      payload: res.data,
-    });
-    dispatch(setAlert('Experience Removed'));
-  } catch (err) {
-    dispatch({
-      type: PROFILE_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status },
-    });
+      dispatch({
+        type: UPDATE_PROFILES,
+        payload: res.data,
+      });
+      dispatch(setAlert('Experience Removed'));
+    } catch (err) {
+      dispatch({
+        type: PROFILE_ERROR,
+        payload: { msg: err.response.statusText, status: err.response.status },
+      });
+    }
   }
 };
 
 //Delete Education
 export const deleteEducation = id => async dispatch => {
-  try {
-    const res = await axios.delete(`/api/profile/education/${id}`);
+  if (window.confirm('Delete Education?')) {
+    try {
+      const res = await axios.delete(`/api/profile/education/${id}`);
 
-    dispatch({
-      type: UPDATE_PROFILES,
-      payload: res.data,
-    });
-    dispatch(setAlert('Education Removed'));
-  } catch (err) {
-    dispatch({
-      type: PROFILE_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status },
-    });
+      dispatch({
+        type: UPDATE_PROFILES,
+        payload: res.data,
+      });
+      dispatch(setAlert('Education Removed'));
+    } catch (err) {
+      dispatch({
+        type: PROFILE_ERROR,
+        payload: { msg: err.response.statusText, status: err.response.status },
+      });
+    }
   }
 };
 
 //Delete Project
 export const deleteProject = id => async dispatch => {
-  try {
-    const res = await axios.delete(`/api/profile/project/${id}`);
+  if (window.confirm('Delete Project?')) {
+    try {
+      const res = await axios.delete(`/api/profile/project/${id}`);
 
-    dispatch({
-      type: UPDATE_PROFILES,
-      payload: res.data,
-    });
-    dispatch(setAlert('Project Removed'));
-  } catch (err) {
-    dispatch({
-      type: PROFILE_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status },
-    });
+      dispatch({
+        type: UPDATE_PROFILES,
+        payload: res.data,
+      });
+      dispatch(setAlert('Project Removed'));
+    } catch (err) {
+      dispatch({
+        type: PROFILE_ERROR,
+        payload: { msg: err.response.statusText, status: err.response.status },
+      });
+    }
   }
 };
 

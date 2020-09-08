@@ -27,35 +27,48 @@ const SingleProject = ({ getProfileById, profile: { profile, loading }, match })
             </Link>
             <div className='project-about bg-white p-2 my-1'>
               <h2 className='text-dark'>{projectName}</h2>
-
               <div className='p-1 project-image'>
                 <img src={image} alt='' />
               </div>
               <a target='_blank' href={linkTo} rel='noopener noreferrer'>
                 <h2 className='text-primary'>Visit Website</h2>
               </a>
+
               <div className='line'></div>
               <h2>About this site</h2>
               <p>{desc} </p>
-              <div className='line'></div>
-              <h2>Technologies used in this site</h2>
 
-              <div className='skills'>
-                {technologies.map((technology, index) => (
-                  <div key={index} className='p-1'>
-                    <i className='fas fa-check'></i> {technology}
-                  </div>
-                ))}
-              </div>
-              <h2>Website Features</h2>
+              {technologies.length > 0 && (
+                <Fragment>
+                  <div className='line'></div>
+                  <h2>Technologies used in this site</h2>
+                  <p className='tags'>
+                    {technologies.map((technology, index) => (
+                      <div key={index} className='p-tag'>
+                        <a href='#' className='tag'>
+                          {technology}
+                        </a>
+                      </div>
+                    ))}
+                  </p>
+                </Fragment>
+              )}
 
-              <div className='skills'>
-                {features.map((feature, index) => (
-                  <div key={index} className='p-1'>
-                    <i className='fas fa-check'></i> {feature}
-                  </div>
-                ))}
-              </div>
+              {features.length > 0 && (
+                <Fragment>
+                  <div className='line'></div>
+                  <h2>Website Features</h2>
+                  <p className='tags'>
+                    {features.map((feature, index) => (
+                      <div key={index} className='p-tag'>
+                        <a href='#' className='tag'>
+                          {feature}
+                        </a>
+                      </div>
+                    ))}
+                  </p>
+                </Fragment>
+              )}
             </div>
           </Fragment>
         )}

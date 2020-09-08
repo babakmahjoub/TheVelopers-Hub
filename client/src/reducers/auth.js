@@ -7,6 +7,8 @@ import {
   LOGIN_FAIL,
   LOGOUT,
   ACCOUNT_DELETED,
+  LIKE_POST,
+  UNLIKE_POST,
 } from '../actions/types';
 
 const initialState = {
@@ -46,6 +48,26 @@ export default function (state = initialState, action) {
         ...state,
         token: null,
         isAuthenticated: false,
+        loading: false,
+        user: null,
+      };
+    case LIKE_POST:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          likes: [...state.user.likes, { postId: payload.id }],
+        },
+        loading: false,
+      };
+    case UNLIKE_POST:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          likes: state.user.likes.filter(like => like.postId !== payload.id),
+        },
+
         loading: false,
       };
     default:

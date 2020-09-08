@@ -102,6 +102,16 @@ router.put('/like/:id', auth, async (req, res) => {
 
     await post.save();
 
+    const user = await User.findById(req.user.id).select('-password');
+    // Check if user already liked the post
+    if (user.likes.some(like => like.postId.toString() === req.params.id)) {
+      return res.status(400).json({ msg: 'User already liked the post' });
+    }
+
+    user.likes.unshift({ postId: req.params.id });
+
+    await user.save();
+
     return res.json(post.likes);
   } catch (err) {
     console.error(err.message);
@@ -123,6 +133,18 @@ router.put('/unlike/:id', auth, async (req, res) => {
     post.likes = post.likes.filter(({ user }) => user.toString() !== req.user.id);
 
     await post.save();
+
+    const user = await User.findById(req.user.id).select('-password');
+
+    // Check if user already unliked the post
+    if (!user.likes.some(like => like.postId.toString() === req.params.id)) {
+      return res.status(400).json({ msg: 'User already liked the post' });
+    }
+
+    // remove the like
+    user.likes = user.likes.filter(({ postId }) => postId.toString() !== req.params.id);
+
+    await user.save();
 
     return res.json(post.likes);
   } catch (err) {
