@@ -369,7 +369,7 @@ router.post('/upload', (req, res) => {
   const imageExtension = file.name.split('.')[file.name.split('.').length - 1];
   const imageFileName = `${Math.round(Math.random() * 10000000000)}.${imageExtension}`;
 
-  file.mv(`${__dirname}../../../client/build/uploads/${imageFileName}`, err => {
+  file.mv(`${__dirname}../../../client/public/uploads/${imageFileName}`, err => {
     if (err) {
       console.error(err);
       return res.status(500).send(err);
