@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addProject } from '../../actions/profile';
+import { setAlert } from '../../actions/alert';
+import store from '../../store';
 import axios from 'axios';
 
 const AddProject = ({ addProject, history }) => {
@@ -56,11 +58,16 @@ const AddProject = ({ addProject, history }) => {
               const data = new FormData();
               data.append('file', file);
               try {
-                const res = await axios.post('api/profile/upload', data, {
-                  headers: {
-                    'Content-Type': 'multipart/form-data',
+                const res = await axios.post(
+                  'api/profile/upload',
+                  data,
+                  {
+                    headers: {
+                      'Content-Type': 'multipart/form-data',
+                    },
                   },
-                });
+                  store.dispatch(setAlert('Image Uploaded', 'success'))
+                );
                 const { fileName, filePath } = res.data;
                 setUploadedFile({ fileName, filePath });
                 setFormData({ ...formData, image: res.data.filePath });
